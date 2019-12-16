@@ -22,12 +22,14 @@ class Client{
 			int server_port = Integer.parseInt(arg[1]);
 			String in;
 			byte[] buffer;
+			
 			try{
+				sClient = new DatagramSocket();
 				do{
 					System.out.print("Message: ");
 					in = bf.readLine();
 					buffer = in.getBytes();
-					sClient = new DatagramSocket();
+					
 					dp = new DatagramPacket(buffer, 0, buffer.length, InetAddress.getByName(server_name), server_port);
 					sClient.send(dp);
 					sClient.receive(dp);
