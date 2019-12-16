@@ -24,14 +24,17 @@ class Client{
 			byte[] buffer;
 			
 			try{
+				//apertura socket
 				sClient = new DatagramSocket();
 				do{
 					System.out.print("Message: ");
 					in = bf.readLine();
 					buffer = in.getBytes();
-					
+					//Creazione del pacchetto da inviare
 					dp = new DatagramPacket(buffer, 0, buffer.length, InetAddress.getByName(server_name), server_port);
 					sClient.send(dp);
+					
+					//attesa della echo
 					sClient.receive(dp);
 					System.out.println("Received: " + new String(buffer, 0, dp.getLength()));
 				}while(!in.equals("end"));

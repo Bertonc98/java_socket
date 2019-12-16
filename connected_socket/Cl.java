@@ -13,10 +13,10 @@ class Cl{
 		
 		try{
 			//Inizializzazione socket con l'indirizzo locale e porta well known
-			InetSocketAddress isa = new InetSocketAddress(InetAddress.getLocalHost(), 50000);
+			InetSocketAddress isa = new InetSocketAddress(InetAddress.getByName(arg[0]), Integer.parseInt(arg[1]));
+			System.out.println(InetAddress.getByName(arg[0]) + " " + Integer.parseInt(arg[1]));
 			toSrv.connect(isa);
 			System.out.println("Client connected to server(Ip, Port): " + toSrv.getInetAddress() + "; " + toSrv.getPort());
-			Thread.sleep(2000);
 			
 			//Impostazione canale di invio al server
 			OutputStream out = toSrv.getOutputStream();
