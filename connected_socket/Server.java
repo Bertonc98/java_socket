@@ -31,17 +31,12 @@ class Server{
 				String result = new String(buffer, 0, letti);
 				System.out.println("Message: " + result);
 				
-				//Attesa per testare
-				Thread.sleep(5000);
-				
 				//Notifica al client 
 				out.write(next.getBytes(), 0, next.length());				
 				}
 				
 			System.out.println("Start shutdown connection");	
-			Thread.sleep(3000);
 			toClient.close();
-			System.out.println("Connection ended");
 			}
 		catch(Exception e){
 			e.printStackTrace();

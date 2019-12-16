@@ -35,16 +35,13 @@ class Cl{
 				System.out.println("Message sended");
 				
 				//Ciclo di attesa della notifica del server
-				while((letti=in.read(buffer))>=0){
-					String result = new String(buffer, 0, letti);
-					if(result.equals("next"))
-						break;
-					//Notifica al client 
-				}
+				letti=in.read(buffer);
+				if(letti<=0 || !(new String(buffer, 0, letti).equals("next")))
+					break;
 				
 				System.out.print("Insert message:");
-				}
 			}
+		}
 		catch(Exception e){
 			e.printStackTrace();
 			}
