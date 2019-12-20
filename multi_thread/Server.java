@@ -7,7 +7,7 @@ import java.io.*;
 
 class Server{
 	public static void main(String[] args){
-		ServerSocket ss;
+		ServerSocket ss=null;
 		Socket toC;
 		try{
 			ss = new ServerSocket(0);
@@ -25,7 +25,7 @@ class Server{
 		}
 		finally{
 			try{ss.close();}
-			catch(Exception e){e.printStackTrace()}
+			catch(Exception e){e.printStackTrace();}
 		}
 	}
 }

@@ -12,6 +12,7 @@ class Client{
 		double b;
 		String cur;
 		byte[] buff = new byte[100];
+		String[] res;
 		try{
 			Socket toS = new Socket(InetAddress.getByName(args[0]), Integer.parseInt(args[1]));
 			do{
@@ -31,7 +32,8 @@ class Client{
 					System.out.println("Server expired");
 					break;
 				}
-				System.out.println("Result: " + new String(buff, 0, letti));
+				res = (new String(buff, 0, letti)).split(":");
+				System.out.println("Result: " + res[1]);
 			}while(true);
 		}
 		catch(Exception e){
