@@ -7,12 +7,14 @@ import java.io.*;
 class RR_tcpC{
 	public static void main(String[] arg){
 		if(arg.length==2){
-			//InetSocketAddress isa = new InetSocketAddress(InetAddress.getByName(arg[0]), Integer.parseInt(arg[1]));
+			
 			InputStreamReader keyboard = new InputStreamReader(System.in);
 			BufferedReader bf = new BufferedReader(keyboard);
 			
 			try{
-				Socket toS = new Socket(InetAddress.getByName(arg[0]), Integer.parseInt(arg[1]));
+				InetSocketAddress isa = new InetSocketAddress(InetAddress.getByName(arg[0]), Integer.parseInt(arg[1]));
+				Socket toS = new Socket();
+				toS.connect(isa);
 				OutputStream out = toS.getOutputStream();
 				String read;
 				while(true){
