@@ -23,5 +23,9 @@ class Server{
 		catch(Exception e){
 			e.printStackTrace();
 		}
+		finally{
+			try{ss.close();}
+			catch(Exception e){e.printStackTrace()}
+		}
 	}
 }

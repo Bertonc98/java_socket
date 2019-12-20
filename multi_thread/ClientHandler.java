@@ -42,8 +42,15 @@ public class ClientHandler extends Thread{
 				
 			}
 			catch(Exception e){
-				e.printStackTrace();
+				try{
+					System.out.println("Client expired :" + s2C.getPort());
+					s2C.close();
+					return;}
+				catch(Exception ex){
+					ex.printStackTrace();
+				}
 			}
+			
 		}
 	
 	}
