@@ -35,7 +35,7 @@ public class ClientHandler extends Thread{
 					toCl.write(res.getBytes(), 0, res.length());
 				}
 				else{
-					System.out.println("Closing conenction with: " + s2C.getPort());
+					System.out.println("Closing connection with: " + s2C.getPort());
 					s2C.close();
 					return;
 				}
